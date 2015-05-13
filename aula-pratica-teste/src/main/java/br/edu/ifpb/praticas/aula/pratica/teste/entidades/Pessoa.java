@@ -2,15 +2,20 @@ package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
 import java.time.LocalDate;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author João Marcos F <joaomarccos.ads@gmail.com>
  */
 @Entity
+@SequenceGenerator(name = "PESSOA_SEQ", sequenceName = "PESSOA_SEQ")
 public class Pessoa {    
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PESSOA_SEQ")
     private String cpf;
     private String nome;
     private Endereco endereco;

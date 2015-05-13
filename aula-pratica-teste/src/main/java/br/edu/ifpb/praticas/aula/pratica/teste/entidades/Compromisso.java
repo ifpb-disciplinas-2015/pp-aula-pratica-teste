@@ -1,6 +1,5 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
-import com.oracle.webservices.internal.api.EnvelopeStyle;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Entity;
@@ -64,6 +63,5 @@ public class Compromisso {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
     
 }

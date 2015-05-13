@@ -1,8 +1,12 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -11,9 +15,15 @@ import javax.persistence.Id;
 @Entity
 public class Pessoa {    
     @Id
+    @Basic(optional = false)
     private String cpf;
     private String nome;
-    private Endereco endereco;
+    
+    @EmbeddedId
+    private Endereco endereco;    
+    
+    @OneToMany    
+    private Collection<Convidado> convidados;
     private LocalDate aniversario;
 
     public Pessoa(String cpf, String nome, Endereco endereco, LocalDate aniversario) {

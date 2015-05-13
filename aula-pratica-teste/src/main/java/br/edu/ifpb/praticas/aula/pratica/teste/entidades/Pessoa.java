@@ -1,5 +1,6 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
+import br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateConverter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +8,7 @@ import javax.persistence.Basic;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -41,6 +43,7 @@ public class Pessoa {
     
     @OneToMany    
     private Collection<Convidado> convidados;
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate aniversario;
 
     public Pessoa(String cpf, String nome, String version, typeSexo sexo, Endereco endereco, LocalDate aniversario) {

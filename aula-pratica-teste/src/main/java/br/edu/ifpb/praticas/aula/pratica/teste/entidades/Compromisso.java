@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateConverter;
+import br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateTimeConverter;
+import java.time.LocalDateTime;
+import javax.persistence.Convert;
 
 /**
  *
@@ -20,6 +24,7 @@ public class Compromisso {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;    
+    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime data;
     private String descricao;
     @ManyToMany

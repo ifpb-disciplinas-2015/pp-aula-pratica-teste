@@ -1,28 +1,83 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author João Marcos F <joaomarccos.ads@gmail.com>
  */
 @Entity
+
 public class Pessoa {    
     @Id
+    @Basic(optional = false)
     private String cpf;
     private String nome;
-    private Endereco endereco;
+    private String version;
+       
+    public enum typeSexo{
+        MASCULINO, FEMININO;
+    }
+    
+    @Enumerated(EnumType.STRING)
+    private typeSexo sexo;
+    
+    @ElementCollection
+    private Collection<String> emails;
+    
+    @Embedded
+    private Endereco endereco;    
+    
+    @OneToMany    
+    private Collection<Convidado> convidados;
     private LocalDate aniversario;
 
-    public Pessoa(String cpf, String nome, Endereco endereco, LocalDate aniversario) {
+    public Pessoa(String cpf, String nome, String version, typeSexo sexo, Endereco endereco, LocalDate aniversario) {
         this.cpf = cpf;
         this.nome = nome;
+        this.version = version;
+        this.sexo = sexo;
         this.endereco = endereco;
         this.aniversario = aniversario;
+        this.emails = new ArrayList<>();
+        this.convidados = new ArrayList<>();                
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public typeSexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(typeSexo sexo) {
+        this.sexo = sexo;
+    }
+    
+    public void addEmail(String email){
+        this.emails.add(email);        
+    }
+    
+    public void addConvidado(Convidado invited){
+        this.convidados.add(invited);
+    } 
+    
     public Pessoa() {
     }
 

@@ -1,18 +1,28 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
-import javax.persistence.EmbeddedId;
+import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author João Marcos F <joaomarccos.ads@gmail.com>
  */
 @Entity
-public class Convidado {
+public class Convidado implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private long id;
     
     private String nome;
+    
     private String presente;
-    @EmbeddedId
+    
+    @Embedded
     private Endereco endereco;
 
     public String getNome() {

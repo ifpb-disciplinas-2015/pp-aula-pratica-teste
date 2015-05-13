@@ -10,6 +10,9 @@ import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
@@ -20,28 +23,32 @@ import javax.persistence.OneToMany;
  * @author João Marcos F <joaomarccos.ads@gmail.com>
  */
 @Entity
+@SequenceGenerator(name = "PESSOA_SEQ", sequenceName = "PESSOA_SEQ")
+public class Pessoa {
 
-public class Pessoa {    
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PESSOA_SEQ")
+    private long id;
     @Basic(optional = false)
     private String cpf;
     private String nome;
     private String version;
-       
-    public enum typeSexo{
+
+    public enum typeSexo {
+
         MASCULINO, FEMININO;
     }
-    
+
     @Enumerated(EnumType.STRING)
     private typeSexo sexo;
-    
+
     @ElementCollection
     private Collection<String> emails;
-    
+
     @Embedded
-    private Endereco endereco;    
-    
-    @OneToMany    
+    private Endereco endereco;
+
+    @OneToMany
     private Collection<Convidado> convidados;
     @Convert(converter = LocalDateConverter.class)
     private LocalDate aniversario;
@@ -54,7 +61,7 @@ public class Pessoa {
         this.endereco = endereco;
         this.aniversario = aniversario;
         this.emails = new ArrayList<>();
-        this.convidados = new ArrayList<>();                
+        this.convidados = new ArrayList<>();
     }
 
     public String getVersion() {
@@ -72,15 +79,15 @@ public class Pessoa {
     public void setSexo(typeSexo sexo) {
         this.sexo = sexo;
     }
-    
-    public void addEmail(String email){
-        this.emails.add(email);        
+
+    public void addEmail(String email) {
+        this.emails.add(email);
     }
-    
-    public void addConvidado(Convidado invited){
+
+    public void addConvidado(Convidado invited) {
         this.convidados.add(invited);
-    } 
-    
+    }
+
     public Pessoa() {
     }
 
@@ -115,8 +122,5 @@ public class Pessoa {
     public void setAniversario(LocalDate aniversario) {
         this.aniversario = aniversario;
     }
-    
-    
-    
-    
+
 }

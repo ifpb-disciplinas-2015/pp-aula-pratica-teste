@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.praticas.aula.pratica.teste;
+package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
 /**
  *
  * @author Pris
  */
+
 public class Endereco {
     
 }

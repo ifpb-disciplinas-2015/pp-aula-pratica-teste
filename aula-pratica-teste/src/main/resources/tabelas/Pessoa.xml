@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+    <pessoa
+        id="1"
+        nome="emanuel" 
+        cpf="12345678912"/>
+    <pessoa
+        id="2"
+        nome="Marcelo" 
+        cpf="12345678913"/>    
+</dataset>

@@ -3,8 +3,28 @@
   <persistence-unit name="desenvolvimento" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Pessoa</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Pessoa</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateConverter</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Compromisso</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Convidado</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateTimeConverter</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/pp-pratica"/>
+      <property name="javax.persistence.jdbc.user" value="pratica"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="pratica"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="unidade02" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Pessoa</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateConverter</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Compromisso</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.entidades.Convidado</class>
+    <class>br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateTimeConverter</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/pp-testes-dbunit"/>
       <property name="javax.persistence.jdbc.user" value="pratica"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="pratica"/>

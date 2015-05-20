@@ -1,13 +1,13 @@
 package br.edu.ifpb.praticas.aula.pratica.teste.entidades;
 
 import br.edu.ifpb.praticas.aula.pratica.teste.conversor.LocalDateConverter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @SequenceGenerator(name = "PESSOA_SEQ", sequenceName = "PESSOA_SEQ")
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PESSOA_SEQ")

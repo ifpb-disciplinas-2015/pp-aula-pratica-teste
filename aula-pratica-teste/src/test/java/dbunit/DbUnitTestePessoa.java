@@ -15,10 +15,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- *
- * @author Marcelo Augusto
- */
 
 public class DbUnitTestePessoa {
     
